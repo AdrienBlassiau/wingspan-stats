@@ -20,15 +20,15 @@ class Games:
     def run_config(self):
         """
         This function runs the configuration of the project.
-        :return:   nothing
+        :return:   nothing.
         """
         config = Config()
         self.i18n = I18n(config.language)
 
     def run_import(self):
         """
-        This function imports the scores from the score file
-        :return:    nothing
+        This function imports the scores from the score file.
+        :return:    nothing.
         """
         with open(Path.get_score_path(), newline='') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',', quotechar='|')
@@ -62,18 +62,35 @@ class Games:
         if self.nb_games() > 0:
             self.add_game(game)
 
+    def run_plot(self):
+        """
+        This function runs the plot of game results for each player.
+        :return:    nothing
+        """
+        player_list = self.get_player_list()
+        for p in player_list:
+            Plot.plot(self, p, self.i18n)
+
     def add_game(self, game):
         """
-        This function adds a game
-        :param game:
-        :return:
+        This function adds a game.
+        :param game:    The game we want to add.
+        :return:        nothing.
         """
         self.games.append(game)
 
     def nb_games(self):
+        """
+        This function computes the total number of games played.
+        :return: The total number of games played.
+        """
         return len(self.games)
 
     def get_winner_dict(self):
+        """
+        This function returns the number of wins for each player in a dict.
+        :return:    A dictionary with the number of wins for each player in a dict.
+        """
         winner_dict = {}
         for g in self.games:
             winners = g.get_winners()
@@ -85,6 +102,10 @@ class Games:
         return winner_dict
 
     def get_loser_dict(self):
+        """
+        This function returns the number of loses for each player in a dict.
+        :return:    A dictionary with the number of loses for each player in a dict.
+        """
         loser_dict = {}
         for g in self.games:
             losers = g.get_losers()
@@ -96,6 +117,13 @@ class Games:
         return loser_dict
 
     def get_best(self, type):
+        """
+        This function returns the best value for the type of point
+        given in parameter.
+        :param type:    The type of point (eggs, tucked carsds, ...).
+        :return:        The best value for the type of point
+                        given in parameter.
+        """
         best = -1
         for g in self.games:
             for p in g.get_players():
@@ -104,6 +132,13 @@ class Games:
         return best
 
     def get_worst(self, type):
+        """
+        This function returns the worst value for the type of point
+        given in parameter.
+        :param type:    The type of point (eggs, tucked carsds, ...).
+        :return:        The worst value for the type of point
+                        given in parameter.
+        """
         worst = 1000
         for g in self.games:
             for p in g.get_players():
@@ -112,18 +147,32 @@ class Games:
         return worst
 
     def get_player_number_wins(self, player_name):
+        """
+        This function returns the player with player_name number of wins.
+        :param player_name:     The name of the player.
+        :return:                The player_name number of wins.
+        """
         winner_dict = self.get_winner_dict()
         if player_name in winner_dict:
             return winner_dict[player_name]
         return 0
 
     def get_player_number_loses(self, player_name):
+        """
+        This function returns the player with player_name number of loses.
+        :param player_name:     The name of the player.
+        :return:                The player_name number of loses.
+        """
         loser_dict = self.get_loser_dict()
         if player_name in loser_dict:
             return loser_dict[player_name]
         return 0
 
     def get_player_list(self):
+        """
+        This function returns the list of all players.
+        :return:    The list of all players.
+        """
         players_list = []
         for g in self.games:
             players = g.get_players()
@@ -134,6 +183,10 @@ class Games:
         return players_list
 
     def get_player_games(self, player_name):
+        """
+        This function returns the list of all players.
+        :return:    The list of all players.
+        """
         player_games = []
         for g in self.games:
             res = g.find_player(player_name)
@@ -143,6 +196,11 @@ class Games:
         return player_games
 
     def get_games_where_player(self, player_name):
+        """
+        This function returns the list of games where player with player_name appears.
+        :param player_name:     The name of the player.
+        :return:                The list of games where player_name appears.
+        """
         games_where_player = []
         for g in self.games:
             res = g.find_player(player_name)
@@ -152,9 +210,22 @@ class Games:
         return games_where_player
 
     def get_player_nb_games(self, player_name):
+        """
+        This functions returns the number of games with player with player_name.
+        :param player_name:     The name of the player.
+        :return:                The number of games player with player_name.
+        """
         return len(self.get_player_games(player_name))
 
     def get_won_games(self, player_name, included_games=[]):
+        """
+        This function returns the won games filter list of the player with player_name
+        with a possible list of included game index.
+        :param player_name:     The name of the player.
+        :param included_games:  A list of included game index. If it is not set to empty,
+                                the selected won games should appear on this list.
+        :return:                The won games filter list of player_name.
+        """
         won_games = []
         for i in range(0, len(self.games)):
             current_game = self.games[i]
@@ -166,6 +237,14 @@ class Games:
         return won_games
 
     def get_lost_games(self, player_name, included_games=[]):
+        """
+        This function returns the lost games filter list of the player with player_name
+        with a possible list of included game index.
+        :param player_name:     The name of the player.
+        :param included_games:  A list of included game index. If it is not set to empty,
+                                the selected won games should appear on this list.
+        :return:                The lost games filter list of player_name.
+        """
         lost_games = []
         for i in range(0, len(self.games)):
             current_game = self.games[i]
@@ -177,6 +256,14 @@ class Games:
         return lost_games
 
     def get_middle_games(self, player_name, included_games=[]):
+        """
+        This function returns the middle games filter list of the player with player_name
+        with a possible list of included game index.
+        :param player_name:     The name of the player.
+        :param included_games:  A list of included game index. If it is not set to empty,
+                              the selected won games should appear on this list.
+        :return:                The middle games filter list of player_name.
+        """
         middle_games = []
         for i in range(0, len(self.games)):
             current_game = self.games[i]
@@ -186,8 +273,3 @@ class Games:
                 else:
                     middle_games.append(True)
         return middle_games
-
-    def run_plot(self):
-        player_list = self.get_player_list()
-        for p in player_list:
-            Plot.plot(self, p, self.i18n)
