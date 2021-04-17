@@ -1,0 +1,17 @@
+flag,english,french
+birds,birds,oiseaux
+bonus_cards,bonus cards,cartes bonus
+end_of_round_goals,end of round goals,objectifs de manche
+eggs,eggs,oeufs
+food_on_cards,food on cards,nourritures stockées
+tucked_cards,tucked cards,cartes recouvertes
+nectars,nectars,nectars
+mean,mean:,moyenne :
+min,min:,min :
+max,max:,max :
+total,total:,total :
+games_played,games played:,nombre de parties jouées :
+games_won_lost,games won/lost:,nombre de parties gagnées/perdues :
+mean_score,mean score:,score moyen :
+best_score,best score:,meilleur score :
+worst_score,worst score:,pire score :
