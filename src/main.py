@@ -4,7 +4,7 @@ from src.games import Games
 def main():
     """
     Main function, run configuration then score import and finally plot data.
-    :return:
+    :return:    nothing.
     """
     games = Games()
     games.run_config()
