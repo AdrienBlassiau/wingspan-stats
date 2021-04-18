@@ -16,6 +16,7 @@ class Games:
     def __init__(self):
         self.games = []  # The list of games
         self.i18n = None  # The translation module
+        self.colors = None
 
     def run_config(self):
         """
@@ -24,6 +25,7 @@ class Games:
         """
         config = Config()
         self.i18n = I18n(config.language)
+        self.colors = config.colors
 
     def run_import(self):
         """
@@ -69,7 +71,7 @@ class Games:
         """
         player_list = self.get_player_list()
         for p in player_list:
-            Plot.plot(self, p, self.i18n)
+            Plot.plot(self, p, self.i18n, self.colors)
 
     def add_game(self, game):
         """
