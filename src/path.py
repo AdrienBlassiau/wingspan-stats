@@ -11,7 +11,7 @@ class Path:
     DEFAULT_OUTPUT_PATH = ROOT_DIR + "/output/"
     DEFAULT_DATA_PATH = ROOT_DIR + "/data/"
     DEFAULT_INI_PATH = ROOT_DIR + "/"
-    DEFAULT_SCORE_OUTPUT_FILE_FORMAT = "score_{player_name}_{language}.png"
+    DEFAULT_SCORE_OUTPUT_FILE_FORMAT = "score_{player_name}.png"
     DEFAULT_SCORE_FILE = "scores.csv"
     DEFAULT_I18N_FILE = "i18n.csv"
     DEFAULT_INI_FILE = "wingspan.stats.ini"
