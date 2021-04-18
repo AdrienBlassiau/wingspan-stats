@@ -33,19 +33,17 @@ class Plot:
         worst_string = "*" if min == worst else " (" + str(worst) + "*" + ")"
         best_string = "*" if max == best else " (" + str(best) + "*" + ")"
 
-        score_resume = "{MEAN_SCORE} {mean} ({WORST_SCORE} {min}{worst}, {BEST_SCORE} {max}{best})". \
-            format(MEAN_SCORE=i18n.translator("mean_score", True),
+        score_resume = "{MEAN_BEST_WORST_SCORE} {mean} / {max}{best} / {min}{worst}". \
+            format(MEAN_BEST_WORST_SCORE=i18n.translator("mean_best_worst_score", False),
                    mean=mean,
-                   WORST_SCORE=i18n.translator("worst_score", True),
-                   min=min,
-                   worst=worst_string,
-                   BEST_SCORE=i18n.translator("best_score", True),
                    max=max,
-                   best=best_string)
+                   best=best_string,
+                   min=min,
+                   worst=worst_string)
 
         text = "{NUMBER_GAMES_PLAYED} {number_games_played} \n " \
                "{NUMBER_GAMES_WON_LOST} " \
-               "{number_games_won} ({number_games_won_percentage}%)/" \
+               "{number_games_won} ({number_games_won_percentage}%) / " \
                "{number_games_lost} ({number_games_lost_percentage}%) \n" \
                "{score_resume} \n" \
             .format(NUMBER_GAMES_PLAYED=i18n.translator("games_played", True),
@@ -124,7 +122,7 @@ class Plot:
     @staticmethod
     def plotScore(games, games_where_player, player_name, included_games, r):
         """
-        This function adds some infos on bars about other player, oncluding the current player.
+        This function adds some infos on bars about other player, including the current player.
         :param games:               The games object.
         :param games_where_player:  The games where the current player appears.
         :param player_name:         The name of the player.
@@ -248,7 +246,8 @@ class Plot:
 
         # Custom X axis
         plt.xticks(r, included_games, fontweight='bold')
-        plt.xlabel(i18n.translator('index_of_game', True))
+        plt.xlabel(i18n.translator('index_of_played_games', True))
+        plt.xticks(rotation=45, ha="right")
 
         # Custom Y axis
         plt.ylabel(i18n.translator('number_of_points', True))
@@ -257,7 +256,7 @@ class Plot:
         # plt.legend(loc='upper right').set_zorder(20)
 
         # Title
-        plt.title(i18n.translator('the_little_wingspaner_sheet', True) + ' ' + player_name.capitalize())
+        plt.title(i18n.translator('data_title', False) + ' ' + player_name.capitalize())
 
         # Global text
         Plot.global_text(games, player_name, score, i18n)

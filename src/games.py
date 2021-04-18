@@ -40,12 +40,12 @@ class Games:
 
         with open(Path.get_score_path(), newline='') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',', quotechar='|')
-            current_number = -1
+            current_number = None
             game = None
             row_count = 0
             for row in csv_reader:
                 if row_count > 0:
-                    number = int(row[0])
+                    index = row[0]
                     player_name = str(row[1])
                     birds = int(row[2])
                     bonus_cards = int(row[3])
@@ -57,12 +57,12 @@ class Games:
                     game_type = int(row[9])
                     player = Player(player_name, birds, bonus_cards, end_of_round_goals, eggs, food_on_cards,
                                     tucked_cards,
-                                    nectars, game_type, number)
-                    if number != current_number:
-                        current_number = number
+                                    nectars, game_type, index)
+                    if index != current_number:
+                        current_number = index
                         if game is not None:
                             self.add_game(game)
-                        game = Game(number)
+                        game = Game(index)
                         game.add_player(player)
                     else:
                         game.add_player(player)

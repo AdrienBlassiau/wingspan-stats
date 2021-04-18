@@ -1,4 +1,4 @@
-number,player_name,birds,bonus_cards,end_of_round_goals,eggs,food_on_cards,tucked_cards,nectars,game_type
+index,player_name,birds,bonus_cards,end_of_round_goals,eggs,food_on_cards,tucked_cards,nectars,game_type
 1,A,47,9,15,5,0,0,0,0,76
 1,B,42,3,16,20,2,11,0,0,94
 1,C,53,3,15,4,0,4,0,0,79

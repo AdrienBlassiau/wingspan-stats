@@ -11,10 +11,11 @@ min,min:,min :
 max,max:,max :
 total,total:,total :
 games_played,games played:,nombre de parties jouées :
-games_won_lost,games won/lost:,nombre de parties gagnées/perdues :
+games_won_lost,games won / lost:,nombre de parties gagnées / perdues :
 mean_score,mean score:,score moyen :
 best_score,best score:,meilleur score :
 worst_score,worst score:,pire score :
-index_of_game,index of games,numéro de la partie
+mean_best_worst_score,mean / Best / Worst score:,Moyen / Meilleur / Pire score :
+index_of_played_games,index of played games,numéro des parties
 number_of_points,number of points,nombre de points
-the_little_wingspaner_sheet,the Little Wingspaner Sheet:,la Fiche du Petit Wingspaner :
+data_title,Wingspan Data:,Données Wingspan :
