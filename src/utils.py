@@ -73,3 +73,7 @@ class Utils:
         :return:    True if we are using mac.
         """
         return platform.system() == 'Darwin'
+
+    @staticmethod
+    def reverse_path_if_windows(path):
+        path.replace('\\', '/') if Utils.is_windows() else path

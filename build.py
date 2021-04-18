@@ -16,7 +16,7 @@ def make_archive():
     :return:    nothing.
     """
     Utils.delete_if_exist(Path.get_zip_path(True))
-    shutil.make_archive(Path.get_zip_path(), "zip", Path.get_dist_path())
+    shutil.make_archive(Path.get_zip_path(), 'zip', Utils.reverse_path_if_windows(Path.get_dist_path()))
 
 
 def make_build():
