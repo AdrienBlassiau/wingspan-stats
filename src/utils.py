@@ -11,6 +11,17 @@ class Utils:
     """
 
     @staticmethod
+    def delete_if_exist(file_path):
+        """
+        This function deletes a file if it exists.
+        :param file_path:   The file we want to delete.
+        :return:            nothing.
+        """
+        import os
+        if os.path.exists(file_path):
+            os.remove(file_path)
+
+    @staticmethod
     def create_file_if_not_exist(in_file_path, out_file_path):
         """
         This funtion writes the content of an input file into an output file.

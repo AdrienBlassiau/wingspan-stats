@@ -11,7 +11,12 @@ from src.utils import Utils
 
 
 def make_archive():
-    shutil.make_archive(Path.get_zip_path(), 'zip', Path.get_dist_path())
+    """
+    This function makes an archive of the built project.
+    :return:    nothing.
+    """
+    Utils.delete_if_exist(Path.get_zip_path(True))
+    shutil.make_archive(Path.get_zip_path(), "zip", Path.get_dist_path())
 
 
 def make_build():
@@ -24,7 +29,7 @@ def make_build():
     command.append('wingspan-stats.spec')
 
     # We create the executable file.
-    # PyInstaller.__main__.run(command)
+    PyInstaller.__main__.run(command)
 
     # We copy the img folder and file
     Utils.create_file_if_not_exist(Path.get_img_path(), Path.get_dist_img_path())
@@ -35,9 +40,7 @@ def make_build():
     # We run the app a first time to create input and input folder with example inside and also ini file.
     os.system(Path.get_exe_path())
 
-    # We make an archive of the build
-    make_archive()
-
 
 if __name__ == '__main__':
+    make_build()
     make_archive()

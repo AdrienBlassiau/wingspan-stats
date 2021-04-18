@@ -163,10 +163,11 @@ class Path:
         return os.path.join(Path.DEFAULT_DIST_PATH, Path.DEFAULT_EXEC_WINDOWS_FILE)
 
     @staticmethod
-    def get_zip_path():
+    def get_zip_path(with_extension=False):
         """
         This function returns the current os.
-        :return:    A string that describe the current os.
+        :param with_extension: If we want to add the .zip extension.
+        :return:               A string that describe the current os.
         """
         name = "wingspan-stats"
         version = _version.__version__
@@ -178,4 +179,5 @@ class Path:
             env = "mac"
 
         return os.path.join(Path.DEFAULT_DIST_PATH,
-                            Path.DEFAULT_ZIP_NAME.format(name=name, version=version, env=env))
+                            Path.DEFAULT_ZIP_NAME.format(name=name, version=version, env=env),
+                            ".zip" if with_extension else "")
