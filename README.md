@@ -6,6 +6,9 @@ The tool is made to be really *user-friendly*. How does it work ?
 - **First**, write all your score on a **scores.csv** file,
 - **Then**, create a beautiful resume of all you games by running the script ! It looks like this :
 
+NOTE : you can download the latest release of the project, which is available here : https://github.com/AdrienBlassiau/wingspan-stats/releases 
+
+
 ![Alt text](img/example.png?raw=true "Title")
 
 ## Q&A for package users
