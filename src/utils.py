@@ -1,3 +1,4 @@
+import errno
 import os.path
 
 
@@ -21,3 +22,12 @@ class Utils:
                     open(out_file_path, "w") as out_file:
                 for line in in_file:
                     out_file.write(line)
+
+    @staticmethod
+    def create_folder_if_not_exist(folder_path):
+        if not os.path.exists(os.path.dirname(folder_path)):
+            try:
+                os.makedirs(os.path.dirname(folder_path))
+            except OSError as exc:
+                if exc.errno != errno.EEXIST:
+                    raise

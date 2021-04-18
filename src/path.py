@@ -1,6 +1,7 @@
 import os
 
 from definitions import ROOT_DIR
+from src.utils import Utils
 
 
 class Path:
@@ -24,6 +25,7 @@ class Path:
         :param player_name:     The name of the player.
         :return:                The path where we write the score of player_name.
         """
+        Utils.create_folder_if_not_exist(Path.DEFAULT_OUTPUT_PATH)
         return os.path.join(Path.DEFAULT_OUTPUT_PATH,
                             Path.DEFAULT_SCORE_OUTPUT_FILE_FORMAT.format(player_name=player_name))
 
@@ -33,6 +35,7 @@ class Path:
         This function returns the path where we read the scores.
         :return:                The path where we read the scores.
         """
+        Utils.create_folder_if_not_exist(Path.DEFAULT_INPUT_PATH)
         return os.path.join(Path.DEFAULT_INPUT_PATH, Path.DEFAULT_SCORE_FILE)
 
     @staticmethod
@@ -41,6 +44,7 @@ class Path:
         This function returns the path where we read the translations.
         :return:                The path where we read the translations.
         """
+        Utils.create_folder_if_not_exist(Path.DEFAULT_DATA_PATH)
         return os.path.join(Path.DEFAULT_DATA_PATH, Path.DEFAULT_I18N_FILE)
 
     @staticmethod
@@ -57,4 +61,5 @@ class Path:
         This function returns the path where we read the model configurations.
         :return:                The path where we read the model configurations.
         """
+        Utils.create_folder_if_not_exist(Path.DEFAULT_DATA_PATH)
         return os.path.join(Path.DEFAULT_DATA_PATH, Path.DEFAULT_INI_MODEL_FILE)
