@@ -6,3 +6,5 @@ TODO:
 - add executable generation
 - add more graphic option
 - add more option on ini file
+- ajouter un fichier de commande utiles
+- ajouter des logs
