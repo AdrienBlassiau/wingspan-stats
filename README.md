@@ -6,7 +6,7 @@ The tool is made to be really *user-friendly*. How does it work ?
 - **First**, write all your score on a **scores.csv** file,
 - **Then**, create a beautiful resume of all you games by running the script ! It looks like this :
 
-![Alt text](./data/img/example.png?raw=true "Title")
+![Alt text](img/example.png?raw=true "Title")
 
 ## Q&A for package users
 
