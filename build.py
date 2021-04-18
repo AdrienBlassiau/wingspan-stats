@@ -34,8 +34,8 @@ def make_build():
     # We copy the img folder and file
     Utils.create_file_if_not_exist(Path.get_img_path(), Path.get_dist_img_path())
 
-    # We copy the help file
-    Utils.create_file_if_not_exist(Path.get_help_path(), Path.get_dist_help_path())
+    # We copy the readme file
+    Utils.create_file_if_not_exist(Path.get_readme_path(), Path.get_dist_readme_path())
 
     # We run the app a first time to create input and input folder with example inside and also ini file.
     os.system(Path.get_exe_path())
