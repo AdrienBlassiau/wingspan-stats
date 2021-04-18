@@ -1,4 +1,5 @@
 import csv
+import logging
 
 from src.config import Config
 from src.game import Game
@@ -34,6 +35,9 @@ class Games:
         :return:    nothing.
         """
         Utils.create_file_if_not_exist(Path.get_score_model_path(), Path.get_score_path())
+
+        logging.info("Reading {path}".format(path=Path.get_score_path()))
+
         with open(Path.get_score_path(), newline='') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',', quotechar='|')
             current_number = -1
@@ -66,6 +70,8 @@ class Games:
         if self.nb_games() > 0:
             self.add_game(game)
 
+        logging.info("{games} games found !".format(games=self.nb_games()))
+
     def run_plot(self):
         """
         This function runs the plot of game results for each player.
@@ -73,6 +79,7 @@ class Games:
         """
         player_list = self.get_player_list()
         for p in player_list:
+            logging.info("Plot running on player: {player}".format(player=p))
             Plot.plot(self, p, self.i18n, self.colors)
 
     def add_game(self, game):

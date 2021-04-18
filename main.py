@@ -1,4 +1,7 @@
 from src.games import Games
+from src.log import Log
+
+import logging
 
 
 def main():
@@ -13,4 +16,7 @@ def main():
 
 
 if __name__ == '__main__':
+    Log.setup()
+    logging.info('Start generation ...')
     main()
+    logging.info('Finished with success !')

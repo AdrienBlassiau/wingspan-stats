@@ -20,6 +20,10 @@ def make_archive():
 
 
 def make_build():
+    """
+    This function create a build of the project.
+    :return:
+    """
     command = ['--onefile', '--windowed', '--name=wingspan-stats', 'wingspan-stats.spec']
 
     # File to build
@@ -38,6 +42,5 @@ def make_build():
 
 
 if __name__ == '__main__':
-    #make_build()
+    make_build()
     make_archive()
-    print("build ok")

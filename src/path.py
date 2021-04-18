@@ -11,6 +11,7 @@ class Path:
     """
     DEFAULT_INPUT_PATH = OUTSIDE_ROOT_DIR + "/input/"
     DEFAULT_OUTPUT_PATH = OUTSIDE_ROOT_DIR + "/output/"
+    DEFAULT_LOG_PATH = OUTSIDE_ROOT_DIR + "/log/"
     DEFAULT_DATA_PATH = INSIDE_ROOT_DIR + "/data/"
     DEFAULT_DIST_PATH = OUTSIDE_ROOT_DIR + "/dist/"
     DEFAULT_IMAGE_PATH = INSIDE_ROOT_DIR + "/data/img/"
@@ -20,6 +21,7 @@ class Path:
     DEFAULT_SCORE_FILE = "scores.csv"
     DEFAULT_SCORE_MODEL_FILE = "scores_model.csv"
     DEFAULT_I18N_FILE = "i18n.csv"
+    DEFAULT_LOG_FILE = "log.log"
     DEFAULT_INI_FILE = "wingspan.stats.ini"
     DEFAULT_INI_MODEL_FILE = "wingspan.stats.model.ini"
     DEFAULT_IMAGE_FILE = "example.png"
@@ -181,3 +183,14 @@ class Path:
         return os.path.join(Path.DEFAULT_DIST_PATH,
                             Path.DEFAULT_ZIP_NAME.format(name=name, version=version, env=env),
                             ".zip" if with_extension else "")
+
+    @staticmethod
+    def get_log_path():
+        """
+        This function returns the path where we store the logs.
+        :return:                The path where we store the logs.
+        """
+        Utils.create_folder_if_not_exist(Path.DEFAULT_LOG_PATH)
+        path = os.path.join(Path.DEFAULT_LOG_PATH, Path.DEFAULT_LOG_FILE)
+        open(path, 'w+')
+        return path
