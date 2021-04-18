@@ -6,6 +6,7 @@ from src.i18n import I18n
 from src.path import Path
 from src.player import Player
 from src.plot import Plot
+from src.utils import Utils
 
 
 class Games:
@@ -32,6 +33,7 @@ class Games:
         This function imports the scores from the score file.
         :return:    nothing.
         """
+        Utils.create_file_if_not_exist(Path.get_score_model_path(), Path.get_score_path())
         with open(Path.get_score_path(), newline='') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',', quotechar='|')
             current_number = -1
