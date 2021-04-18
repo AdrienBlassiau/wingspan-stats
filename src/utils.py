@@ -76,4 +76,4 @@ class Utils:
 
     @staticmethod
     def reverse_path_if_windows(path):
-        path.replace('\\', '/') if Utils.is_windows() else path
+        return path.replace('\\', '/') if Utils.is_windows() else path

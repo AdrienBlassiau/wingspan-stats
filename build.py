@@ -42,5 +42,6 @@ def make_build():
 
 
 if __name__ == '__main__':
-    make_build()
+    #make_build()
     make_archive()
+    print("build ok")
