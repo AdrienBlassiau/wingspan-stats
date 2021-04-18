@@ -3,11 +3,8 @@ A tool for Wingspan enthusiasts. It plot your games scores with a lot of useful 
 
 ## TODO
 - add log for better debug and a debug mode to activate it
-- add executable generation
 - add more graphic option
 - add more option on ini file
-- ajouter un fichier de commande utiles
-- ajouter des logs
 
 ## If you want to install the project locally on your machine
 
