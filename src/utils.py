@@ -1,6 +1,6 @@
 import errno
 import os.path
-
+import shutil
 
 class Utils:
     """
@@ -18,10 +18,9 @@ class Utils:
         file_exists = os.path.isfile(out_file_path)
 
         if not file_exists:
-            with open(in_file_path, "r") as in_file, \
-                    open(out_file_path, "w") as out_file:
-                for line in in_file:
-                    out_file.write(line)
+            with open(in_file_path, "r"), \
+                    open(out_file_path, "w"):
+                shutil.copyfile(in_file_path, out_file_path)
 
     @staticmethod
     def create_folder_if_not_exist(folder_path):
