@@ -150,6 +150,9 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-#output
+# output
 output/
+
+# wingspan.stats.ini
+wingspan.stats.ini
 
