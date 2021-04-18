@@ -1,6 +1,7 @@
 import os
 
 from definitions import OUTSIDE_ROOT_DIR, INSIDE_ROOT_DIR
+from src import _version
 from src.utils import Utils
 
 
@@ -23,6 +24,17 @@ class Path:
     DEFAULT_INI_MODEL_FILE = "wingspan.stats.model.ini"
     DEFAULT_IMAGE_FILE = "example.png"
     DEFAULT_HELP_FILE = "HELP.md"
+    DEFAULT_EXEC_UNIX_FILE = "wingspan-stats"
+    DEFAULT_EXEC_WINDOWS_FILE = "wingspan-stats.exe"
+    DEFAULT_ZIP_NAME = "{name}-{version}-{env}"
+
+    @staticmethod
+    def get_dist_path():
+        """
+        This function returns the dist path
+        :return:                The dist path.
+        """
+        return Path.DEFAULT_DIST_PATH
 
     @staticmethod
     def get_output_save_path(player_name):
@@ -112,3 +124,58 @@ class Path:
         """
         Utils.create_folder_if_not_exist(Path.DEFAULT_DATA_PATH)
         return os.path.join(Path.DEFAULT_DATA_PATH, Path.DEFAULT_INI_MODEL_FILE)
+
+    @staticmethod
+    def get_exe_path():
+        """
+        This function returns the path where we store the exec file.
+        :return:                The path where we store the exec file.
+        """
+        if Utils.is_linux():
+            return Path.get_unix_exe_path()
+        elif Utils.is_windows():
+            return Path.get_windows_exe_path()
+        else:
+            return Path.get_unix_exe_path()
+
+    @staticmethod
+    def get_unix_exe_path():
+        """
+        This function returns the path where we store the unix exec file.
+        :return:                The path where we store the unix exec file.
+        """
+        return os.path.join(Path.DEFAULT_DIST_PATH, Path.DEFAULT_EXEC_UNIX_FILE)
+
+    @staticmethod
+    def get_windows_exe_path():
+        """
+        This function returns the path where we store the windows exec file.
+        :return:                The path where we store the windows exec file.
+        """
+        return os.path.join(Path.DEFAULT_DIST_PATH, Path.DEFAULT_EXEC_WINDOWS_FILE)
+
+    @staticmethod
+    def get_zip_dest():
+        """
+        This function returns the path where we store the windows exec file.
+        :return:                The path where we store the windows exec file.
+        """
+        return os.path.join(Path.DEFAULT_DIST_PATH, Path.DEFAULT_EXEC_WINDOWS_FILE)
+
+    @staticmethod
+    def get_zip_path():
+        """
+        This function returns the current os.
+        :return:    A string that describe the current os.
+        """
+        name = "wingspan-stats"
+        version = _version.__version__
+        if Utils.is_linux():
+            env = "linux"
+        elif Utils.is_windows():
+            env = "windows"
+        else:
+            env = "mac"
+
+        return os.path.join(Path.DEFAULT_DIST_PATH,
+                            Path.DEFAULT_ZIP_NAME.format(name=name, version=version, env=env))
