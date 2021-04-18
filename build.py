@@ -20,13 +20,9 @@ def make_archive():
 
 
 def make_build():
-    command = []
+    command = ['--onefile', '--windowed', '--name=wingspan-stats', 'wingspan-stats.spec']
 
     # File to build
-    command.append('--onefile')
-    command.append('--windowed')
-    command.append('--name=wingspan-stats')
-    command.append('wingspan-stats.spec')
 
     # We create the executable file.
     PyInstaller.__main__.run(command)
