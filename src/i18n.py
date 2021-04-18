@@ -7,9 +7,10 @@ class I18n:
     """
     This class reads the i18n files and manages i18n string with a dict.
     """
+
     def __init__(self, language):
         self.i18n_dict = {}
-        self.language = language # The selected language.
+        self.language = language  # The selected language.
         self.read_i18n_file()
 
     def read_i18n_file(self):
