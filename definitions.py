@@ -1,7 +1,9 @@
 import os
 import sys
 
-# determine if application is a script file or frozen exe
+"""
+Some path managment here.
+"""
 
 if getattr(sys, 'frozen', False):
     INSIDE_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -9,5 +11,3 @@ if getattr(sys, 'frozen', False):
 elif __file__:
     INSIDE_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
     OUTSIDE_ROOT_DIR = INSIDE_ROOT_DIR
-
-print(INSIDE_ROOT_DIR, OUTSIDE_ROOT_DIR)
