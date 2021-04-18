@@ -6,7 +6,7 @@ eggs,eggs,oeufs
 food_on_cards,food on cards,nourritures stockées
 tucked_cards,tucked cards,cartes recouvertes
 nectars,nectars,nectars
-mean,mean:,moyenne :
+mean,mean:,moy. :
 min,min:,min :
 max,max:,max :
 total,total:,total :
@@ -15,3 +15,6 @@ games_won_lost,games won/lost:,nombre de parties gagnées/perdues :
 mean_score,mean score:,score moyen :
 best_score,best score:,meilleur score :
 worst_score,worst score:,pire score :
+index_of_game,index of games,numéro de la partie
+number_of_points,number of points,nombre de points
+the_little_wingspaner_sheet,the Little Wingspaner Sheet:,la Fiche du Petit Wingspaner :
