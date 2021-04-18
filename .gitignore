@@ -153,6 +153,6 @@ fabric.properties
 # output
 output/
 
-# wingspan.stats.ini
-wingspan.stats.ini
+# .ini files
+*.ini
 
